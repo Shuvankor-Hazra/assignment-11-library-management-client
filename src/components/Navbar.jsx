@@ -5,7 +5,7 @@ import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
 
-    const { user } = useContext(AuthContext);
+    const { user,logOut } = useContext(AuthContext);
 
     const navLinks = <>
         <li><Link to='/'>Home</Link></li>
@@ -43,7 +43,7 @@ const Navbar = () => {
                                     </div>
                                 </div>
                             </div>
-                            <Link className="btn bg-[#D2B48C] btn-sm md:btn-md md:px-8 md:text-lg md:font-bold">Log Out</Link>
+                            <Link onClick={logOut} className="btn btn-sm md:btn-md md:px-8 md:text-lg md:font-bold">Log Out</Link>
                         </div> :
 
                         <div className="flex items-center gap-1">

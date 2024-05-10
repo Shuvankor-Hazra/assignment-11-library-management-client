@@ -16,38 +16,25 @@ const Footer = () => {
                     <div className='flex flex-wrap justify-center mt-6 -mx-4'>
                         <a href='#'
                             className='mx-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 '
-                            aria-label='Reddit'
-                        >Home</a>
-                        <a
-                            href='#'
+                            aria-label='Reddit'>
+                            Home
+                        </a>
+                        <a href='#'
                             className='mx-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 '
-                            aria-label='Reddit'
-                        >
-                            About
+                            aria-label='Reddit'>
+                            Add Book
                         </a>
 
-                        <a
-                            href='#'
+                        <a href='#'
                             className='mx-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 '
-                            aria-label='Reddit'
-                        >
-                            Teams
+                            aria-label='Reddit'>
+                            All Books
                         </a>
 
-                        <a
-                            href='#'
+                        <a href='#'
                             className='mx-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 '
-                            aria-label='Reddit'
-                        >
-                            Privacy
-                        </a>
-
-                        <a
-                            href='#'
-                            className='mx-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 '
-                            aria-label='Reddit'
-                        >
-                            Cookies
+                            aria-label='Reddit'>
+                            Borrowed Books
                         </a>
                     </div>
                 </div>
@@ -56,32 +43,26 @@ const Footer = () => {
 
                 <div className='flex flex-col items-center sm:flex-row sm:justify-between'>
                     <p className='text-sm text-gray-500 '>
-                        © Copyright 2021. All Rights Reserved.
+                        © Copyright 2024. All Rights Reserved.
                     </p>
 
-                    <div className='flex -mx-2'>
-                        <a
-                            href='#'
+                    <div className='flex mx-2'>
+                        <a href='#'
                             className='mx-2 text-gray-600 transition-colors duration-300 hover:text-blue-500 '
-                            aria-label='Reddit'
-                        >
-                            <FaFacebook/>
+                            aria-label='Reddit'>
+                            <FaFacebook />
                         </a>
 
-                        <a
-                            href='#'
+                        <a href='#'
                             className='mx-2 text-gray-600 transition-colors duration-300 hover:text-blue-500 '
-                            aria-label='Facebook'
-                        >
-                            <FaLinkedin/>
+                            aria-label='Facebook'>
+                            <FaLinkedin />
                         </a>
 
-                        <a
-                            href='#'
+                        <a href='#'
                             className='mx-2 text-gray-600 transition-colors duration-300 hover:text-blue-500 '
-                            aria-label='Github'
-                        >
-                            <FaGithub/>
+                            aria-label='Github'>
+                            <FaGithub />
                         </a>
                     </div>
                 </div>

@@ -8,6 +8,7 @@ import { BsGoogle } from "react-icons/bs";
 const Login = () => {
     const navigate = useNavigate();
     const { signIn, signInWithGoogle } = useContext(AuthContext);
+
     // Google Sign in
     const handleGoogleSignIn = async () => {
         try {
@@ -15,7 +16,7 @@ const Login = () => {
             toast.success('Google sign in successful')
             navigate('/')
         } catch (err) {
-            console.log(err)
+            console.log(err.message)
             toast.error(err?.message)
         }
     }
@@ -32,7 +33,7 @@ const Login = () => {
             navigate('/')
             toast.success('Sign in successful')
         } catch (err) {
-            console.log(err)
+            console.log(err.message)
             toast.error(err?.message)
         }
     }
