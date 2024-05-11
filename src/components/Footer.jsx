@@ -39,14 +39,14 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <hr className='my-6 border-gray-200 md:my-10 ' />
+                <hr className='my-6 border-gray-200 md:my-10' />
 
-                <div className='flex flex-col items-center sm:flex-row sm:justify-between'>
+                <div className='flex flex-col items-center sm:flex-row sm:justify-between space-y-6'>
                     <p className='text-sm text-gray-500 '>
                         © Copyright 2024. All Rights Reserved.
                     </p>
 
-                    <div className='flex mx-2'>
+                    <div className='flex gap-3'>
                         <a href='#'
                             className='mx-2 text-gray-600 transition-colors duration-300 hover:text-blue-500 '
                             aria-label='Reddit'>

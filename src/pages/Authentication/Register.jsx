@@ -22,10 +22,11 @@ const Register = () => {
             toast.success('Google sign in successful')
             navigate('/')
         } catch (err) {
-            console.log(err)
+            console.log(err.message)
             toast.error(err?.message)
         }
     }
+
     // Sign Up
     const handleSignUp = async (e) => {
         e.preventDefault();
@@ -43,7 +44,7 @@ const Register = () => {
             navigate('/')
             toast.success('Sign up successful')
         } catch (err) {
-            console.log(err)
+            console.log(err.message)
             toast.error(err?.message)
         }
     }
@@ -53,7 +54,7 @@ const Register = () => {
             <div className='flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl '>
                 <div className='w-full px-6 py-8 md:px-8 lg:w-1/2'>
                     <div className='flex justify-center mx-auto'>
-                        <h2><Link to='/' className="cursor-pointer text-2xl font-bold">LibraryRoom</Link></h2>
+                        <Link to='/' className="cursor-pointer text-2xl font-bold">LibraryRoom</Link>
                     </div>
 
                     <p className='mt-3 text-xl text-center text-gray-600 '>

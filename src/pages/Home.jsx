@@ -1,8 +1,13 @@
+import About from "../components/About";
+import Carousel from "../components/Carousel";
+import Category from "../components/Category";
 
 const Home = () => {
     return (
         <div>
-            Home
+            <Carousel />
+            <About />
+            <Category/>
         </div>
     );
 };
