@@ -1,4 +1,3 @@
-import { FaAnglesRight } from "react-icons/fa6";
 import aboutImg from '../assets/image/aboutLibrary.jpg';
 
 const About = () => {
@@ -23,7 +22,7 @@ const About = () => {
 
                         <p className="text-xl"><span className="font-bold">Dive into Boundless Knowledge: </span> Step into a sanctuary of stories, where imagination knows no bounds. From classics to contemporary tales, our library invites you to explore, dream, and discover.</p>
                     </div>
-                    <button className="btn bg-[#D2B48C] mt-6">Rede more <FaAnglesRight /></button>
+                    <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">Read more</button>
                 </div>
             </div>
         </div>

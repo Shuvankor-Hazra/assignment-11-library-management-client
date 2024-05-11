@@ -12,10 +12,11 @@ const Category = () => {
         }
         getData();
     }, [])
+
     return (
         <div>
             <div className="text-center my-10">
-                <h2 className="text-2xl md:text-3xl font-bold ">Categories</h2>
+                <h2 className="text-2xl md:text-3xl font-bold ">Our Categories</h2>
                 <p className="md:text-xl md:w-1/2 mx-auto py-3 text-gray-500">Books transport readers to distant lands, evoke emotions, and inspire curiosity, offering a refuge where minds wander freely.
                 </p>
             </div>
@@ -27,7 +28,7 @@ const Category = () => {
                             <div className="card-body">
                                 <h2 className="text-center text-2xl font-bold mb-6">{category.category}</h2>
                                 <div className="card-actions">
-                                    <button className="btn w-full">{category.button_text}</button>
+                                    <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">{category.button_text}</button>
                                 </div>
                             </div>
                         </div>

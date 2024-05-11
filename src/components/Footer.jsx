@@ -39,7 +39,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <hr className='my-6 border-gray-200 md:my-10' />
+                <hr className='my-6 border-sky-500 md:my-10' />
 
                 <div className='flex flex-col items-center sm:flex-row sm:justify-between space-y-6'>
                     <p className='text-sm text-gray-500 '>
