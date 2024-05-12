@@ -26,7 +26,7 @@ const Slide = ({ image, text, sub }) => {
                             Read More
                         </Link>
 
-                        <Link className='w-full px-5 py-4 mt-4 text-sm font-medium text-white capitalize transition-colors duration-300 transform bg-gray-500 rounded-md lg:w-auto hover:bg-gray-500 focus:outline-none focus:bg-gray-500'>
+                        <Link to='/contact' className='w-full px-5 py-4 mt-4 text-sm font-medium text-white capitalize transition-colors duration-300 transform bg-gray-500 rounded-md lg:w-auto hover:bg-gray-500 focus:outline-none focus:bg-gray-500'>
                             Contact Us
                         </Link>
                     </div>

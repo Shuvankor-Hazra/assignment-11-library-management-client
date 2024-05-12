@@ -42,7 +42,7 @@ const Login = () => {
     return (
         <div className='flex justify-center items-center min-h-[calc(100vh-306px)] my-12'>
             <div className='flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl '>
-                <div className='lg:w-1/2 flex justify-center p-6'>
+                <div className='hidden lg:w-1/2 lg:flex justify-center p-6'>
                     <img src={`${'https://i.ibb.co/vZY0S79/banner.png'}`} alt="" />
                 </div>
 

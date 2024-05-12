@@ -168,7 +168,7 @@ const Register = () => {
                         <span className='w-1/5 border-b  md:w-1/4'></span>
                     </div>
                 </div>
-                <div className='lg:w-1/2 flex justify-center p-6'>
+                <div className='hidden lg:w-1/2 lg:flex justify-center p-6'>
                     <img src={`${'https://i.ibb.co/vZY0S79/banner.png'}`} alt="" />
                 </div>
             </div>
