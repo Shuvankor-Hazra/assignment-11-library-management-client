@@ -1,14 +1,19 @@
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import { AuthContext } from "../../provider/AuthProvider";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import toast from "react-hot-toast";
 import { BsGoogle } from "react-icons/bs";
 
 
 const Login = () => {
     const navigate = useNavigate();
-    const { signIn, signInWithGoogle } = useContext(AuthContext);
     const location = useLocation();
+    const { signIn, signInWithGoogle, user, loading } = useContext(AuthContext);
+    useEffect(()=>{
+        if(user) {
+            navigate('/')
+        }
+    }, [navigate, user])
     const from = location.state || '/';
 
     // Google Sign in
@@ -16,7 +21,7 @@ const Login = () => {
         try {
             await signInWithGoogle()
             toast.success('Google sign in successful')
-            navigate(from, {replace:true});
+            navigate(from, { replace: true });
         } catch (err) {
             console.log(err.message)
             toast.error(err?.message)
@@ -33,14 +38,15 @@ const Login = () => {
         try {
             const result = await signIn(email, pass)
             console.log(result);
-            navigate(from, {replace:true});
+            navigate(from, { replace: true });
             toast.success('Sign in successful')
         } catch (err) {
             console.log(err.message)
             toast.error(err?.message)
         }
     }
-    
+    if (user || loading) return;
+
     return (
         <div className='flex justify-center items-center min-h-[calc(100vh-306px)] my-12'>
             <div className='flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl '>

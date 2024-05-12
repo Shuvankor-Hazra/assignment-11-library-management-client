@@ -1,11 +1,14 @@
 
 import axios from 'axios';
+import { useContext } from 'react';
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from '../provider/AuthProvider';
 
 
 const AddBook = () => {
     const navigate = useNavigate();
+    const {user} = useContext(AuthContext);
 
     const handleFormSubmit = async(e) => {
         e.preventDefault();
@@ -17,6 +20,7 @@ const AddBook = () => {
         const category = form.category.value;
         const rating = form.rating.value;
         const description = form.description.value;
+        const email = user.email;
         const bookData = {
             image,
             bookName,
@@ -24,7 +28,8 @@ const AddBook = () => {
             authorName,
             category,
             rating,
-            description
+            description,
+            email
         }
         try {
             const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/book`, bookData)

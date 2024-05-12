@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 
 const Category = () => {
@@ -28,7 +29,7 @@ const Category = () => {
                             <div className="card-body">
                                 <h2 className="text-center text-2xl font-bold mb-6">{category.category}</h2>
                                 <div className="card-actions">
-                                    <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">{category.button_text}</button>
+                                    <Link to={`/categoryDetails/`} className="text-center w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">{category.button_text}</Link>
                                 </div>
                             </div>
                         </div>
