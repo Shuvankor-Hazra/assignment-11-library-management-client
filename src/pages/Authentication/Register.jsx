@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import toast from "react-hot-toast";
 import { BsGoogle } from "react-icons/bs";
@@ -14,13 +14,15 @@ const Register = () => {
         signInWithGoogle,
         updateUserProfile
     } = useContext(AuthContext);
+    const location = useLocation();
+    const from = location.state || '/';
 
-    // Google Sign in
+    // Google Sign up
     const handleGoogleSignIn = async () => {
         try {
             await signInWithGoogle()
-            toast.success('Google sign in successful')
-            navigate('/')
+            toast.success('Google sign up successful')
+            navigate(from, { replace: true })
         } catch (err) {
             console.log(err.message)
             toast.error(err?.message)
@@ -41,7 +43,7 @@ const Register = () => {
             console.log(result);
             await updateUserProfile(name, photo)
             setUser({ ...user, photoURL: photo, displayName: name })
-            navigate('/')
+            navigate(from, { replace: true })
             toast.success('Sign up successful')
         } catch (err) {
             console.log(err.message)
