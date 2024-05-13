@@ -1,16 +1,17 @@
 import { Link, useLocation, useNavigate } from "react-router-dom"
-import { AuthContext } from "../../provider/AuthProvider";
 import { useContext, useEffect } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 import toast from "react-hot-toast";
 import { BsGoogle } from "react-icons/bs";
+import axios from "axios";
 
 
 const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const { signIn, signInWithGoogle, user, loading } = useContext(AuthContext);
-    useEffect(()=>{
-        if(user) {
+    useEffect(() => {
+        if (user) {
             navigate('/')
         }
     }, [navigate, user])
@@ -19,7 +20,11 @@ const Login = () => {
     // Google Sign in
     const handleGoogleSignIn = async () => {
         try {
-            await signInWithGoogle()
+            const result = await signInWithGoogle()
+            console.log(result?.user);
+            const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/jwt`, { email: result?.user?.email }, { withCredentials: true })
+            console.log(data);
+
             toast.success('Google sign in successful')
             navigate(from, { replace: true });
         } catch (err) {

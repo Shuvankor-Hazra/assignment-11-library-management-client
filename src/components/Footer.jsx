@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { FaFacebook } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
+import logo from '../../public/logo.png';
 
 const Footer = () => {
     return (
@@ -10,32 +11,32 @@ const Footer = () => {
             <div className='max-w-6xl py-8 mx-auto'>
                 <div className='flex flex-col items-center text-center'>
                     <div className='flex gap-2 items-center'>
-                        <Link to='/' className="cursor-pointer text-2xl font-bold">LibraryRoom</Link>
+                        <Link to='/' className="cursor-pointer text-xl md:text-2xl font-bold flex items-end gap-2"><img src={logo} alt="Logo" className="w-8 md:w-12" />LibraryRoom</Link>
                     </div>
 
                     <div className='flex flex-wrap justify-center mt-6 -mx-4'>
-                        <a href='#'
+                        <Link to='/' href='#'
                             className='mx-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 '
                             aria-label='Reddit'>
                             Home
-                        </a>
-                        <a href='#'
+                        </Link>
+                        <Link to='addBook' href='#'
                             className='mx-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 '
                             aria-label='Reddit'>
                             Add Book
-                        </a>
+                        </Link>
 
-                        <a href='#'
+                        <Link to='allBooks' href='#'
                             className='mx-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 '
                             aria-label='Reddit'>
                             All Books
-                        </a>
+                        </Link>
 
-                        <a href='#'
+                        <Link to='borrowed' href='#'
                             className='mx-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 '
                             aria-label='Reddit'>
                             Borrowed Books
-                        </a>
+                        </Link>
                     </div>
                 </div>
 
