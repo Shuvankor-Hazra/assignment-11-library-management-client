@@ -34,8 +34,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/allBooks',
-                element: <PrivateRoutes><AllBooks /></PrivateRoutes>,
-                loader: () => fetch(`${import.meta.env.VITE_API_URL}/books`)
+                element: <PrivateRoutes><AllBooks /></PrivateRoutes>
             },
             {
                 path: '/borrowed',

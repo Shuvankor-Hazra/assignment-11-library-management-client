@@ -13,12 +13,12 @@ const About = () => {
                 </figure>
                 <div className="lg:w-1/2 card-body px-3 lg:px-6 space-y-6">
                     <h2 className="text-xl md:text-3xl font-bold mb-6">Gateway to Infinite Literary Worlds</h2>
-                    <div className="space-y-5">
+                    <div className="flex flex-col gap-6">
                         <p className="text-xl"><span className="font-bold">Enrich Your Mind at Our Book Library:</span> Discover endless adventures and knowledge within our vast collection of books and resources.</p>
 
                         <p className="text-xl"><span className="font-bold">Immerse Yourself in Literature:</span> Discover worlds, escape reality, and broaden horizons through our extensive collection. Your journey awaits.</p>
 
-                        <p className="text-xl"><span className="font-bold">Embark on Literary Adventures:</span> Explore diverse genres, uncover hidden gems, and lose yourself in captivating stories within our welcoming haven of books.</p>
+                        <p className="text-xl flex-grow"><span className="font-bold">Embark on Literary Adventures:</span> Explore diverse genres, uncover hidden gems, and lose yourself in captivating stories within our welcoming haven of books.</p>
 
                         <p className="text-xl"><span className="font-bold">Dive into Boundless Knowledge: </span> Step into a sanctuary of stories, where imagination knows no bounds. From classics to contemporary tales, our library invites you to explore, dream, and discover.</p>
                     </div>
