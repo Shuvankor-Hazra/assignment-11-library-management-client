@@ -16,7 +16,7 @@ const Category = () => {
 
     return (
         <div>
-            <div className="text-center my-10">
+            <div className="text-center mb-10">
                 <h2 className="text-2xl md:text-3xl font-bold ">Our Categories</h2>
                 <p className="md:text-xl md:w-1/2 mx-auto py-3 text-gray-500">Books transport readers to distant lands, evoke emotions, and inspire curiosity, offering a refuge where minds wander freely.
                 </p>

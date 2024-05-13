@@ -3,7 +3,7 @@ import aboutImg from '../assets/image/aboutLibrary.jpg';
 const About = () => {
     return (
         <div className="pb-6 pt-12">
-            <div className="text-center my-10">
+            <div className="text-center mb-10">
                 <h2 className="text-2xl md:text-3xl font-bold ">About Us</h2>
                 <p className="md:text-xl md:w-1/2 mx-auto py-3 text-gray-500">Journey through literary realms; explore diverse narratives, ideas, and cultures in our sanctuary of knowledge and imagination.</p>
             </div>
