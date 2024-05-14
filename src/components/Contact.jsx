@@ -45,21 +45,21 @@ const Contact = () => {
                 </div>
 
                 <div className="lg:w-1/2 p-6 space-y-10 md:mt-16">
-                    <div className="border border-black rounded-xl p-5 flex gap-6 items-center">
+                    <div className="border-4 border-base-100 rounded-xl p-5 flex gap-6 items-center">
                         <div className="text-3xl "><MdLocationOn /></div>
                         <div>
                             <h2>OUR LOCATION</h2>
                             <p>123th, Roundstreet, INA.</p>
                         </div>
                     </div>
-                    <div className="border border-black rounded-xl p-5 flex gap-6 items-center">
+                    <div className="border-4 border-base-100 rounded-xl p-5 flex gap-6 items-center">
                         <div className="text-3xl "><FaPhoneAlt /></div>
                         <div>
                             <h2>Get In Touch</h2>
                             <p>+123-456-7890</p>
                         </div>
                     </div>
-                    <div className="border border-black rounded-xl p-5 flex gap-6 items-center">
+                    <div className="border-4 border-base-100 rounded-xl p-5 flex gap-6 items-center">
                         <div className="text-3xl "><MdEmail /></div>
                         <div>
                             <h2>Email</h2>
