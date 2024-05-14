@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import axios from "axios";
 
 
 const BookDetails = () => {
@@ -10,6 +11,24 @@ const BookDetails = () => {
     const book = useLoaderData();
     const { image } = book;
     const [startDate, setStartDate] = useState(new Date());
+
+    const handleBorrow = e => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const date = form.date.value;
+        const borrowBook = { name, email, date };
+
+        axios.post(`${import.meta.env.VITE_API_URL}/borrow`, borrowBook)
+            .then(res => {
+                console.log(res.data);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
+
     return (
         <div>
             <div className="text-center mb-10">
@@ -39,7 +58,7 @@ const BookDetails = () => {
                                 <p className="md:text-xl font-bold">{book.bookName}</p>
                                 <p className="md:text-lg font-semibold">Author : {book.authorName}</p>
                             </div>
-                            <form>
+                            <form onSubmit={handleBorrow}>
                                 <div className='grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2'>
                                     <div>
                                         <label className='text-gray-700 ' htmlFor='name'>
@@ -72,11 +91,11 @@ const BookDetails = () => {
                                             Return Date
                                         </label>
                                         <div name='date'>
-                                            <DatePicker className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring" selected={startDate} onChange={(date) => setStartDate(date)} />
+                                            <DatePicker name="date" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring" selected={startDate} onChange={(date) => setStartDate(date)} />
 
                                         </div>
                                     </div>
-                                    <button className='mt-3 text-white bg-black border border-gray-200 rounded-md  focus:ring-opacity-40  focus:outline-none focus:ring'>
+                                    <button type="submit" className='mt-3 text-white bg-black border border-gray-200 rounded-md  focus:ring-opacity-40  focus:outline-none focus:ring'>
                                         Submit
                                     </button>
                                 </div>

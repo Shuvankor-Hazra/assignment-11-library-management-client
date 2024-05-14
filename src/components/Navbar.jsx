@@ -7,7 +7,9 @@ import logo from '../../public/logo.png';
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
 
-    const [theme, setTheme] = useState('light');
+    const [theme, setTheme] = useState(() => {
+        return localStorage.getItem('theme') || 'light';
+    });
 
     useEffect(() => {
         localStorage.setItem("theme", theme);

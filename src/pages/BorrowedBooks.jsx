@@ -1,9 +1,11 @@
+import { useLoaderData } from "react-router-dom";
 
 
 const BorrowedBooks = () => {
+    const borrowBooks = useLoaderData();
     return (
         <div>
-            Borrowed Books
+            Borrowed Books: {borrowBooks.length}
         </div>
     );
 };
