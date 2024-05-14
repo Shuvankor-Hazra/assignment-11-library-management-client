@@ -4,33 +4,34 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 const AllBooks = () => {
-    const [itemsPerPage, setItemsPerPage] = useState(4);
+    const [itemsPerPage] = useState(8);
     const [currentPage, setCurrentPage] = useState(1)
     const [count, setCount] = useState(0);
     const [books, setBooks] = useState([]);
+    const [filter, setFilter] = useState('');
+    const [sort, setSort] = useState('');
 
     useEffect(() => {
         const getData = async () => {
-            const { data } = await axios(`${import.meta.env.VITE_API_URL}/all-books?page=${currentPage}&size=${itemsPerPage}`)
+            const { data } = await axios(`${import.meta.env.VITE_API_URL}/all-books?page=${currentPage}&size=${itemsPerPage}&filter=${filter}&sort=${sort}`)
             setBooks(data);
         }
         getData();
-    }, [currentPage, itemsPerPage])
+    }, [currentPage, filter, itemsPerPage, sort])
 
     useEffect(() => {
         const getCount = async () => {
-            const { data } = await axios(`${import.meta.env.VITE_API_URL}/books-count`)
+            const { data } = await axios(`${import.meta.env.VITE_API_URL}/books-count?filter=${filter}`)
             setCount(data.count);
         }
         getCount();
-    }, [])
+    }, [filter])
     console.log(count);
 
     const numberOfPages = Math.ceil(count / itemsPerPage)
     const pages = [...Array(numberOfPages).keys()].map(e => e + 1)
 
     // handlePagination btn
-
     const handlePaginationButton = (value) => {
         setCurrentPage(value);
     }
@@ -42,6 +43,11 @@ const AllBooks = () => {
                 <div className='flex flex-col md:flex-row justify-center items-center gap-5 '>
                     <div>
                         <select
+                            onChange={e => {
+                                setFilter(e.target.value)
+                                setCurrentPage(1)
+                            }}
+                            value={filter}
                             name='category'
                             id='category'
                             className='border p-4 rounded-lg'
@@ -71,8 +77,13 @@ const AllBooks = () => {
                     </form>
                     <div>
                         <select
-                            name='category'
-                            id='category'
+                            onChange={e => {
+                                setSort(e.target.value)
+                                setCurrentPage(1)
+                            }}
+                            value={sort}
+                            name='sort'
+                            id='sort'
                             className='border p-4 rounded-md'
                         >
                             <option value='Novel'>Novel</option>
