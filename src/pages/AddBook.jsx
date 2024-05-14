@@ -8,9 +8,9 @@ import { AuthContext } from '../provider/AuthProvider';
 
 const AddBook = () => {
     const navigate = useNavigate();
-    const {user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
 
-    const handleFormSubmit = async(e) => {
+    const handleFormSubmit = async (e) => {
         e.preventDefault();
         const form = e.target;
         const image = form.image.value;
@@ -144,7 +144,7 @@ const AddBook = () => {
                             Description
                         </label>
                         <textarea
-                        required
+                            required
                             className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
                             name='description'
                             id='description'
