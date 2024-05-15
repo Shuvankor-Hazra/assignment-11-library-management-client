@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
@@ -14,12 +15,12 @@ const AllBooks = () => {
 
 
     useEffect(() => {
-        const getData = async () => {
-            const { data } = await axios(`${import.meta.env.VITE_API_URL}/all-books?page=${currentPage}&size=${itemsPerPage}&filter=${filter}&sort=${sort}`)
-            setBooks(data);
-        }
         getData();
     }, [currentPage, filter, itemsPerPage, sort])
+    const getData = async () => {
+        const { data } = await axios(`${import.meta.env.VITE_API_URL}/all-books?page=${currentPage}&size=${itemsPerPage}&filter=${filter}&sort=${sort}`)
+        setBooks(data);
+    }
 
     useEffect(() => {
         const getCount = async () => {
@@ -42,6 +43,19 @@ const AllBooks = () => {
     const handleResetButton = () => {
         setFilter('');
         setSort('');
+    }
+
+    const handleDelete = async (id) => {
+        try {
+            const { data } = await axios.delete(`${import.meta.env.VITE_API_URL}/books/${id}`)
+            console.log(data);
+            toast.success('Deleted Successfully')
+            // Refresh UI
+            getData();
+        } catch (err) {
+            console.log(err.message);
+            toast.error(err.message);
+        }
     }
 
     return (
@@ -97,6 +111,7 @@ const AllBooks = () => {
                                 <p className="font-bold">Rating: {book.rating}</p>
                                 <p className="font-bold">Quantity: {book.quantity}</p>
                                 <div className="card-actions">
+                                    <button onClick={() => handleDelete(book._id)} className="w-full text-center px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">Delete</button>
                                     <Link to={`/update/${book._id}`} className="w-full text-center px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">Update</Link>
                                     <Link to={`/bookDetails/${book._id}`} className="w-full text-center px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">Details</Link>
                                 </div>
