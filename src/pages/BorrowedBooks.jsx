@@ -46,7 +46,7 @@ const BorrowedBooks = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {
-                    borrows.map(borrow => <div key={borrow._id} className="card bg-base-100 mb-3 shadow-xl hover:scale-[1.05] transition-all">
+                    borrows.map(borrow => <div key={borrow._id} className="card bg-base-100 mb-3 shadow-xl border hover:scale-[1.05] transition-all">
                         <figure><img src={borrow.image} alt="Book" /></figure>
                         <div className="p-6 space-y-2">
                             <h2 className="card-title">{borrow.bookName}</h2>

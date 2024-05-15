@@ -12,7 +12,7 @@ const BookDetails = () => {
     const { user } = useContext(AuthContext);
     const [startDate, setStartDate] = useState(new Date());
     const navigate = useNavigate();
-    const book = useLoaderData();
+    const books = useLoaderData();
     const {
         image,
         bookName,
@@ -20,7 +20,7 @@ const BookDetails = () => {
         authorName,
         category,
         rating,
-        description } = book;
+        description } = books || {};
 
     const handleBorrow = e => {
         e.preventDefault();
@@ -56,14 +56,14 @@ const BookDetails = () => {
     return (
         <div>
             <div className="text-center mb-10">
-                <h2 className="text-2xl md:text-3xl font-bold">Book Details</h2>
+                <h2 className="text-2xl md:text-3xl font-bold mt-10">Book Details</h2>
             </div>
-            <div className="lg:flex items-center lg:mb-14 bg-base-300 my-10 rounded-xl">
+            <div className="lg:flex items-center lg:mb-14 bg-base-300 my-10 rounded-xl border">
                 <figure className="lg:w-1/2 p-6">
                     <img className="rounded-xl" src={image} alt="img" />
                 </figure>
                 <div className="lg:w-1/2 card-body px-3 lg:px-6">
-                    <div className="space-y-5">
+                    <div className="space-y-5 lg:space-y-10">
                         <p><span className="md:text-lg font-semibold">Book Name: </span>{bookName}</p>
                         <p><span className="md:text-lg font-semibold">Author Name: </span> {authorName}</p>
                         <p><span className="md:text-lg font-semibold">Category: </span>{category}</p>
@@ -79,8 +79,8 @@ const BookDetails = () => {
                     <dialog id="borrow-modal" className="modal">
                         <div className="modal-box p-16">
                             <div className="text-xl text-center">
-                                <p className="md:text-xl font-bold">{book.bookName}</p>
-                                <p className="md:text-lg font-semibold">Author : {book.authorName}</p>
+                                <p className="md:text-xl font-bold">{books.bookName}</p>
+                                <p className="md:text-lg font-semibold">Author : {books.authorName}</p>
                             </div>
                             <form onSubmit={handleBorrow}>
                                 <div className='grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2'>

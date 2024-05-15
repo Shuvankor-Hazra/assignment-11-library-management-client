@@ -88,14 +88,16 @@ const AllBooks = () => {
                 <div className='grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
 
                     {
-                        books.map(book => <div key={book._id} className="card bg-base-100 mb-3 shadow-xl hover:scale-[1.05] transition-all">
+                        books.map(book => <div key={book._id} className="card bg-base-100 mb-3 shadow-xl border hover:scale-[1.05] transition-all">
                             <figure><img src={book.image} alt="Book" /></figure>
                             <div className="p-6 space-y-2">
                                 <h2 className="card-title">{book.bookName}</h2>
                                 <p>{book.authorName}</p>
                                 <p className="font-semibold">Category: {book.category}</p>
                                 <p className="font-bold">Rating: {book.rating}</p>
+                                <p className="font-bold">Quantity: {book.quantity}</p>
                                 <div className="card-actions">
+                                    <Link to={`/update/${book._id}`} className="w-full text-center px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">Update</Link>
                                     <Link to={`/bookDetails/${book._id}`} className="w-full text-center px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">Details</Link>
                                 </div>
                             </div>

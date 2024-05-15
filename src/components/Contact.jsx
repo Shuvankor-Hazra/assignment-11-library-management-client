@@ -38,7 +38,7 @@ const Contact = () => {
                         placeholder="Your Message"
                         name="message"
                         id=""
-                        rows="9">
+                        rows="10">
 
                     </textarea>
                     <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50 mt-5">Send Email</button>
@@ -66,7 +66,7 @@ const Contact = () => {
                             <p>Hello@Awesomesite.Com</p>
                         </div>
                     </div>
-                    <div className=" text-center">
+                    <div className="text-center">
                         <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">View On Map</button>
                     </div>
                 </div>
