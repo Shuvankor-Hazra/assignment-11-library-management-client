@@ -29,7 +29,6 @@ const AllBooks = () => {
         }
         getCount();
     }, [filter])
-    console.log(count);
 
     const numberOfPages = Math.ceil(count / itemsPerPage)
     const pages = [...Array(numberOfPages).keys()].map(e => e + 1)
@@ -63,7 +62,6 @@ const AllBooks = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
                         if (data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",

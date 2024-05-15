@@ -24,7 +24,6 @@ const Navbar = () => {
             setTheme('light')
         }
     }
-    console.log(theme);
 
     const navLinks = <>
         <li><Link to='/'>Home</Link></li>
@@ -34,7 +33,7 @@ const Navbar = () => {
     </>
 
     return (
-        <div className="">
+        <div>
             <div className="navbar mt-2 py-6 bg-base-300 rounded-xl max-w-7xl mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown z-50 mr-3">

@@ -11,13 +11,11 @@ const BorrowedBooks = () => {
     const [borrows, setBorrows] = useState([]);
 
     const handleReturn = (_id) => {
-        console.log(_id);
         fetch(`${import.meta.env.VITE_API_URL}/borrow/${_id}`, {
             method: "DELETE"
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.deletedCount > 0) {
                     Swal.fire({
                         title: "Returned!",

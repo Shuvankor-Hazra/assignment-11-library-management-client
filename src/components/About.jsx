@@ -7,7 +7,7 @@ const About = () => {
                 <h2 className="text-2xl md:text-3xl font-bold ">About Us</h2>
                 <p className="md:text-xl md:w-1/2 mx-auto py-3 text-gray-500">Journey through literary realms; explore diverse narratives, ideas, and cultures in our sanctuary of knowledge and imagination.</p>
             </div>
-            <div className="lg:flex items-center lg:mb-14 bg-base-300 my-10 rounded-xl">
+            <div className="lg:flex items-center lg:mb-14 bg-base-300 my-10 rounded-xl border">
                 <figure className="lg:w-1/2 rounded-xl p-3">
                     <img className="rounded-xl " src={aboutImg} alt="About Image" />
                 </figure>
