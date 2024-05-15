@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AllBooks = () => {
     const [itemsPerPage] = useState(8);
@@ -46,16 +46,48 @@ const AllBooks = () => {
     }
 
     const handleDelete = async (id) => {
-        try {
-            const { data } = await axios.delete(`${import.meta.env.VITE_API_URL}/books/${id}`)
-            console.log(data);
-            toast.success('Deleted Successfully')
-            // Refresh UI
-            getData();
-        } catch (err) {
-            console.log(err.message);
-            toast.error(err.message);
-        }
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`${import.meta.env.VITE_API_URL}/books/${id}`, {
+                    method: "DELETE"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                            getData();
+                            // const remaining = myAdded.filter(myAdd => myAdd._id !== _id);
+                            // setMyAdded(remaining);
+                        }
+                    })
+            }
+        });
+        
+        // try {
+        //     const { data } = await axios.delete(`${import.meta.env.VITE_API_URL}/books/${id}`)
+        //     console.log(data);
+        //     toast.success('Deleted Successfully')
+        //     // Refresh UI
+        //     getData();
+        // } catch (err) {
+        //     console.log(err.message);
+        //     toast.error(err.message);
+        // }
     }
 
     return (
@@ -111,8 +143,8 @@ const AllBooks = () => {
                                 <p className="font-bold">Rating: {book.rating}</p>
                                 <p className="font-bold">Quantity: {book.quantity}</p>
                                 <div className="card-actions">
-                                    <button onClick={() => handleDelete(book._id)} className="w-full text-center px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">Delete</button>
-                                    <Link to={`/update/${book._id}`} className="w-full text-center px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">Update</Link>
+                                    <button onClick={() => handleDelete(book._id)} className="w-full text-center px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-red-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">Delete</button>
+                                    <Link to={`/update/${book._id}`} className="w-full text-center px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-green-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">Update</Link>
                                     <Link to={`/bookDetails/${book._id}`} className="w-full text-center px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">Details</Link>
                                 </div>
                             </div>
