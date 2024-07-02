@@ -1,7 +1,3 @@
-# React + Vite
-
-## Assignment_ID: assignment_category_0008
-
 ## Website name: LibraryRoom
 
 ### Live Url: https://user-email-passwoed-auth.web.app
